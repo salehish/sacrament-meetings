@@ -1,69 +1,34 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="mx-auto max-w-6xl px-5 py-12 md:py-20">
+      <section className="grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#397454]">Worship • Preparation • Reverence</p>
+          <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl">Plan meaningful <span className="text-[#397454]">Sunday</span> meetings.</h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">A simple place for ward leaders to organize sacrament meeting agendas and for members to review and print meeting programs.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/meetings" className="rounded-xl bg-[#245c43] px-6 py-3 font-semibold text-white shadow-sm hover:bg-[#173e2e]">View meeting programs</Link>
+            <Link href="/meetings/current" className="rounded-xl border border-[#cbd8ce] bg-white px-6 py-3 font-semibold text-[#245c43] hover:bg-[#edf4ee]">This Sunday</Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="rounded-3xl border border-[#dce7dd] bg-[#eaf2eb] p-5 shadow-sm">
+          <Image src="/meeting-hero.svg" alt="Illustration of a chapel with a Sunday meeting program" width={720} height={520} priority className="h-auto w-full rounded-2xl" />
+          <div className="px-2 pb-2 pt-5">
+            <p className="font-semibold text-[#245c43]">A clear plan for every meeting</p>
+            <p className="mt-1 text-sm text-slate-600">Announcements, hymns, prayers, ward business, speakers, and musical numbers.</p>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+      <section className="mt-16 grid gap-4 sm:grid-cols-3">
+        {[["Organize","Keep meeting details and agenda items together."],["Review","Navigate current and past meeting programs."],["Print","Prepare a clean program for Sunday worship."]].map(([title, desc]) => (
+          <div key={title} className="rounded-2xl border border-[#e1e8e2] bg-white p-6">
+            <h2 className="text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p>
+          </div>
+        ))}
+      </section>
+    </main>
   );
 }
