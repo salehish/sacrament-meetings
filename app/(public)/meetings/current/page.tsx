@@ -6,8 +6,7 @@ import { getCurrentMeeting } from "@/lib/meetings-db";
 export default async function CurrentMeetingPage() {
   await connection();
 
-  const meeting = getCurrentMeeting();
-
+const meeting = await getCurrentMeeting();
   if (!meeting) {
     redirect("/meetings");
   }

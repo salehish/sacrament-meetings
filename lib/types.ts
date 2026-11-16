@@ -1,4 +1,4 @@
-export type MeetingType = "testimony" | "regular" | "stake" | "general";
+export type MeetingType = "testimony" | "regular" | "stake" | "general" | "special";
 export interface Hymn { number: number; title: string; }
 export interface SpeakerItem { name: string; topic: string; type: "speaker" | "musical-number"; }
 export interface WardBusinessItem { description: string; }
